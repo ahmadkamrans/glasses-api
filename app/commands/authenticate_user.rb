@@ -2,7 +2,6 @@ class AuthenticateUser
   prepend SimpleCommand
 
   def initialize(params)
-    binding.pry
     @email = params[:email]
     @password = params[:password]
   end
