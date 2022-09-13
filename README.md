@@ -30,6 +30,11 @@ bundle exec rails s
 
 ```http://localhost:3000/api/v1/glasses?lense_id=1&frame_id=1&currency=GBP```
 
+
+### Postman collection for testing
+```glasses-api.postman_collection.json```
+
+
 ### ENV, config, and credential storage
 
 TL;DR

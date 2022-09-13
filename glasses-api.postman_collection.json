@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "9e55f20d-6930-4ca3-a51d-500b058addc4",
+		"name": "glasses-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/authentications?email=admin@example.com&password=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"authentications"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@example.com"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create frames",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjMxMjYzMjF9.vhsCRS-eAvpmAV4SSLkZMgW1308R4AemvU4yfRCSceI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/frames?name=test&description=test&status=active&price=22&currency=USDs&stock=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"frames"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test"
+						},
+						{
+							"key": "description",
+							"value": "test"
+						},
+						{
+							"key": "status",
+							"value": "active"
+						},
+						{
+							"key": "price",
+							"value": "22"
+						},
+						{
+							"key": "currency",
+							"value": "USDs"
+						},
+						{
+							"key": "stock",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create lense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjMxMjYzMjF9.vhsCRS-eAvpmAV4SSLkZMgW1308R4AemvU4yfRCSceI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/lenses?name=test&description=test&prescription_type=fashion&price=22&currency=USD&stock=2&lense_type=classic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"lenses"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test"
+						},
+						{
+							"key": "description",
+							"value": "test"
+						},
+						{
+							"key": "prescription_type",
+							"value": "fashion"
+						},
+						{
+							"key": "price",
+							"value": "22"
+						},
+						{
+							"key": "currency",
+							"value": "USD"
+						},
+						{
+							"key": "stock",
+							"value": "2"
+						},
+						{
+							"key": "lense_type",
+							"value": "classic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list frames",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjMxMjYzMjF9.vhsCRS-eAvpmAV4SSLkZMgW1308R4AemvU4yfRCSceI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/frames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"frames"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List lenses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjMxMjYzMjF9.vhsCRS-eAvpmAV4SSLkZMgW1308R4AemvU4yfRCSceI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/lenses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"lenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create glasses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjMxMjYzMjF9.vhsCRS-eAvpmAV4SSLkZMgW1308R4AemvU4yfRCSceI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/glasses?lense_id=1&frame_id=1&currency=GBP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"glasses"
+					],
+					"query": [
+						{
+							"key": "lense_id",
+							"value": "1"
+						},
+						{
+							"key": "frame_id",
+							"value": "1"
+						},
+						{
+							"key": "currency",
+							"value": "GBP"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
