@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: glasses_development
+
+test:
+  <<: *default
+  database: glasses_test
+  host: 127.0.0.1
+
+production:
+  <<: *default
+  database: glasses_production
