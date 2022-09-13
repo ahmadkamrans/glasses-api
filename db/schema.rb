@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_13_055720) do
+ActiveRecord::Schema.define(version: 2022_09_13_072605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2022_09_13_055720) do
     t.index ["status"], name: "index_frames_on_status"
   end
 
+  create_table "glasses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lense_id", null: false
+    t.bigint "frame_id", null: false
+    t.float "price"
+    t.bigint "currency_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["currency_id"], name: "index_glasses_on_currency_id"
+    t.index ["frame_id"], name: "index_glasses_on_frame_id"
+    t.index ["lense_id", "frame_id"], name: "index_glasses_on_lense_id_and_frame_id"
+    t.index ["lense_id"], name: "index_glasses_on_lense_id"
+    t.index ["user_id"], name: "index_glasses_on_user_id"
+  end
+
   create_table "lenses", force: :cascade do |t|
     t.string "color"
     t.text "description"
@@ -51,6 +66,15 @@ ActiveRecord::Schema.define(version: 2022_09_13_055720) do
     t.index ["prescription_type"], name: "index_lenses_on_prescription_type"
     t.index ["price", "currency_id"], name: "index_lenses_on_price_and_currency_id", unique: true
     t.index ["price"], name: "index_lenses_on_price"
+  end
+
+  create_table "shopping_baskets", force: :cascade do |t|
+    t.string "glasses_ids", default: [], array: true
+    t.bigint "user_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shopping_baskets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
