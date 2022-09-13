@@ -9,7 +9,7 @@ class V1::Lenses::Create < Grape::API
     end
 
     params do
-      requires :name, type: String
+      requires :color, type: String
       requires :description, type: String
       requires :prescription_type, type: String, default: 'fashion', values: ['fashion', 'single_vision', 'varifocals']
       requires :lense_type, type: String, default: 'classic', values: ['classic', 'blue_light', 'transition']

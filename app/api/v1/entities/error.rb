@@ -1,4 +1,4 @@
-class V1::Entities::Error <  Grape::Entity
+class V1::Entities::Error < Grape::Entity
   expose :error_context, documentation: { type: "String" }
   expose :error_message, documentation: { type: "String" }
   expose :error_code, documentation: { type: "String" }
