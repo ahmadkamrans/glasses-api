@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+
+  api:
+    invalid_token: Invalid token
+    missing_auth_token: Auth token is missing
+    token_expired: Token expired
+    missing_authorization_header: Missing Authorization header
+    record_not_found: Record not found
+    validation_errors: Validation errors
+    internal_server_error: Internal server error
+    authorization_error: Not authorized to perform this action
