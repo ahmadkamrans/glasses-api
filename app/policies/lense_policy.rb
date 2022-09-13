@@ -1,4 +1,4 @@
-class FramePolicy < ApplicationPolicy
+class LensePolicy < ApplicationPolicy
   def index?
     is_admin? || is_user?
   end

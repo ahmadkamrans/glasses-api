@@ -46,4 +46,14 @@ class ApplicationPolicy
       scope
     end
   end
+  
+  protected
+
+  def is_admin?
+    user.admin?
+  end
+
+  def is_user?
+    user.user?
+  end
 end

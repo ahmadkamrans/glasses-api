@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_13_012119) do
+ActiveRecord::Schema.define(version: 2022_09_13_055720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "prefixes"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "frames", force: :cascade do |t|
     t.string "name"
@@ -23,7 +30,27 @@ ActiveRecord::Schema.define(version: 2022_09_13_012119) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "currency_id"
+    t.index ["currency_id"], name: "index_frames_on_currency_id"
+    t.index ["price", "currency_id"], name: "index_frames_on_price_and_currency_id", unique: true
     t.index ["status"], name: "index_frames_on_status"
+  end
+
+  create_table "lenses", force: :cascade do |t|
+    t.string "color"
+    t.text "description"
+    t.integer "prescription_type", default: 0
+    t.integer "lense_type", default: 0
+    t.integer "stock", default: 0
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "currency_id"
+    t.index ["currency_id"], name: "index_lenses_on_currency_id"
+    t.index ["lense_type"], name: "index_lenses_on_lense_type"
+    t.index ["prescription_type"], name: "index_lenses_on_prescription_type"
+    t.index ["price", "currency_id"], name: "index_lenses_on_price_and_currency_id", unique: true
+    t.index ["price"], name: "index_lenses_on_price"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,6 +58,9 @@ ActiveRecord::Schema.define(version: 2022_09_13_012119) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 0
   end
 
+  add_foreign_key "frames", "currencies"
+  add_foreign_key "lenses", "currencies"
 end

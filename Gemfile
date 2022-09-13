@@ -33,6 +33,7 @@ gem 'grape-entity'
 
 gem 'rubocop'
 
+gem 'interactor'
 gem 'simple_command'
 
 group :development, :test do
