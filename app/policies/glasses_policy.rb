@@ -8,7 +8,7 @@ class GlassesPolicy < ApplicationPolicy
   end
 
   def create?
-    is_user? || true
+    is_user?
   end
 
   def update?
